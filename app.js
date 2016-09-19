@@ -32,6 +32,8 @@ var connection = mysql.createConnection({
 	debug: false
 });
 
+var port = process.env.port || 3000;
+
 connection.connect();
 
 // development only
@@ -245,6 +247,6 @@ app.post('/view_data_timespan', function(req, res) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+http.createServer(app).listen(port, function(){
+  console.log('Express server listening on port ' + port);
 });
